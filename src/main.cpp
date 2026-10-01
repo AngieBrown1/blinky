@@ -9,11 +9,14 @@ int main(){
     
 
     while(true){
-    bn::core::update();
-
         if(bn::keypad::a_pressed()){
-        
+            bn::backdrop::set_color(bn::color(31,21,22));
         }
+       
+        if(bn::keypad::b_pressed()){
+            bn::backdrop::set_color(bn::color(23,5,23));
+        }
+        bn::core::update();
     }
 
 
