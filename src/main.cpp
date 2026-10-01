@@ -18,11 +18,14 @@ int main(){
             bn::backdrop::set_color(bn::color(15, 31, 31));
         }
         
-        if(bn::keypad::b_pressed()){
+        if(bn::keypad::b_held()){
             bn::backdrop::set_color(bn::color(23,5,23));
             color_change = true;
         }
 
+        if(bn::keypad::b_released() && color_change == true){
+            bn::backdrop::set_color(bn::color(15, 31, 31));
+        }
 
         bn::core::update();
     }
