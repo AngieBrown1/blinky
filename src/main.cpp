@@ -6,16 +6,24 @@
 int main(){
     bn::core::init();
     bn::backdrop::set_color(bn::color(15, 31, 31));
-    
+    bool color_change;
 
     while(true){
-        if(bn::keypad::a_pressed()){
+        if(bn::keypad::a_held()){
             bn::backdrop::set_color(bn::color(31,21,22));
+            color_change = true;
         }
-       
+
+        if(bn::keypad::a_released() && color_change == true){
+            bn::backdrop::set_color(bn::color(15, 31, 31));
+        }
+        
         if(bn::keypad::b_pressed()){
             bn::backdrop::set_color(bn::color(23,5,23));
+            color_change = true;
         }
+
+
         bn::core::update();
     }
 
